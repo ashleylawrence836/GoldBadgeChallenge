@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public class Class1
+    public class Cafe
     {
+        public int MealNum { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public double Price { get; set; }
+
+        // Ingredients
     }
 }
