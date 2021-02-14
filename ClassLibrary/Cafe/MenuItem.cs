@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public class Cafe
+    public class MenuItem
     {
         public int MealNum { get; set; }
         public string Name { get; set; }
@@ -14,5 +14,17 @@ namespace ClassLibrary
         public double Price { get; set; }
 
         // Ingredients
+        public MenuItem() { }
+        public MenuItem(int mealNum, string name, string description, double price)
+        {
+            MealNum = mealNum;
+            Name = name;
+            Description = description;
+            Price = price;
+        }
+
+
     }
+
+
 }
