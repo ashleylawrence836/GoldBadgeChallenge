@@ -10,7 +10,6 @@ namespace ClassLibrary
     {
         private readonly List<MenuItem> _menu = new List<MenuItem>();
 
-        //CREATE
         public bool AddItemToMenu(MenuItem menuItem)
         {
             int startCount = _menu.Count;
@@ -20,14 +19,10 @@ namespace ClassLibrary
             return wasAdded;
         }
 
-        //READ
-
         public List<MenuItem> GetMenu()
         {
             return _menu;
         }
-
-        //DELETE
 
         public MenuItem GetItemByMealNum(int mealNum)
         {
@@ -41,9 +36,22 @@ namespace ClassLibrary
             throw new Exception("That meal doesn't exist!");
         }
 
-        //public bool DeleteItem(int mealNum)
-        //{
+        public bool RemoveMenuItem(int mealNum)
+        {
+            MenuItem item = GetItemByMealNum(mealNum);
+            if( item == null)
+            {
+                return false;
+            }
 
-        //}
+            int initialCount = _menu.Count;
+            _menu.Remove(item);
+
+            if (initialCount > _menu.Count)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
