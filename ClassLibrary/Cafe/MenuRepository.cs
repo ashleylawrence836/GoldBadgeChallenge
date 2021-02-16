@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary.NewFolder1
+namespace ClassLibrary
 {
     public class MenuRepository
     {
@@ -37,16 +37,13 @@ namespace ClassLibrary.NewFolder1
                 {
                     return meal;
                 }
-                else
-                {
-                    return null;
-                    //throw new Exception("That meal number doesn't exist!");
-                }
             }
+            throw new Exception("That meal doesn't exist!");
         }
-        public bool DeleteItem(int mealNum)
-        {
 
-        }
+        //public bool DeleteItem(int mealNum)
+        //{
+
+        //}
     }
 }

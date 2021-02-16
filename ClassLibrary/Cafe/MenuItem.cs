@@ -12,17 +12,17 @@ namespace ClassLibrary
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
+        public string Ingredients { get; set; }
 
-        // Ingredients
         public MenuItem() { }
-        public MenuItem(int mealNum, string name, string description, double price)
+        public MenuItem(int mealNum, string name, string description, string ingredients, double price)
         {
             MealNum = mealNum;
             Name = name;
             Description = description;
             Price = price;
+            Ingredients = ingredients;
         }
-
 
     }
 
