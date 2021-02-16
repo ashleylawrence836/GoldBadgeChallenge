@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Cafe\Program.cs" />
     <Compile Include="Cafe\ProgramUI.cs" />
+    <Compile Include="Claims\Program.cs" />
+    <Compile Include="Claims\ProgramUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

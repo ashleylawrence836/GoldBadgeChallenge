@@ -43,7 +43,10 @@
   <ItemGroup>
     <Compile Include="Cafe\MenuItem.cs" />
     <Compile Include="Cafe\MenuRepository.cs" />
+    <Compile Include="Claims\Claims.cs" />
+    <Compile Include="Claims\ClaimsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

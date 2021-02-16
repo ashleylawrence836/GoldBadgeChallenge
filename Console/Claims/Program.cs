@@ -1,17 +1,16 @@
-﻿using Consoles;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Consoles
+namespace Consoles.Claims
 {
     class Program
     {
         static void Main(string[] args)
         {
-            ProgramUI_Menu ui = new ProgramUI_Menu();
+            ProgramUI ui = new ProgramUI();
             ui.Run();
         }
     }
