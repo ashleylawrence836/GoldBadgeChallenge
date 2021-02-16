@@ -10,6 +10,7 @@ namespace Consoles
     class ProgramUI
     {
         private List<MenuItem> _menuRepo = new List<MenuItem>();
+        MenuRepository _menuRepository = new MenuRepository();
         public void Run()
         {
             SeedMenu();
@@ -31,7 +32,7 @@ namespace Consoles
                 switch (input)
                 {
                     case "1":
-                        ShowMenu();
+                        DisplayMenu();
                         break;
                     case "2":
                         // Update Menu
@@ -43,30 +44,33 @@ namespace Consoles
                         // Exit
                         break;
                 }
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
             }
         }
-        private void DisplayMenu(MenuItem menuItem)
-        {
-            Console.WriteLine($"Meal Number: {menuItem.MealNum}\n" +
-                $"Meal Name: {menuItem.Name}\n" +
-                $"Description: {menuItem.Description}\n" +
-                $"Ingredients: {menuItem.Ingredients}\n" +
-                $"Price: ${menuItem.Price}\n");
-        }
 
-        private void ShowMenu()
+        private void DisplayMenu()
         {
-            //List<MenuItem> menuList = _menuRepo.GetMenu();
+            List<MenuItem> menuList = _menuRepository.GetMenu();
+            foreach (MenuItem item in menuList)
+            {
+                Console.WriteLine($"Meal Number: {item.MealNum}\n" +
+                $"Meal Name: {item.Name}\n" +
+                $"Description: {item.Description}\n" +
+                $"Ingredients: {item.Ingredients}\n" +
+                $"Price: ${item.Price}\n");
+            }
         }
         private void SeedMenu()
         {
-            MenuItem mealOne = new MenuItem( 1, "Cereal", "An endless bowl of cereal of your choosing.", "Cereal, milk,", 4.99);
+            MenuItem mealOne = new MenuItem(1, "Cereal", "An endless bowl of cereal, your choice.", "Cereal, milk,", 4.99);
             MenuItem mealTwo = new MenuItem(2, "Basic Breakfast", "Nothing more than your basic breakfast. (Eggs, bacon, toast, oatmeal.)", "Eggs, bacon, flour, yeast, baking soda, whole oats, brown sugar", 9.99);
             MenuItem mealThree = new MenuItem(1, "Pancakes", "All you can eat pancakes.", "flour, eggs, milk", 4.99);
 
-            _menuRepo.Add(mealOne);
-            _menuRepo.Add(mealTwo);
-            _menuRepo.Add(mealThree);
+            _menuRepository.AddItemToMenu(mealOne);
+            _menuRepository.AddItemToMenu(mealTwo);
+            _menuRepository.AddItemToMenu(mealThree);
         }
     }
 }
