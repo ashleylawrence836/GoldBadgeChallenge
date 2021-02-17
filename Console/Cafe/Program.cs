@@ -11,7 +11,7 @@ namespace Consoles
     {
         static void Main(string[] args)
         {
-            ProgramUI_Menu ui = new ProgramUI_Menu();
+            ProgramUI ui = new ProgramUI();
             ui.Run();
         }
     }

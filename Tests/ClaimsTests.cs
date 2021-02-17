@@ -7,7 +7,7 @@ namespace Tests
     public class ClaimsTests
     {
         [TestMethod]
-        public void ClaimsTests()
+        public void ClaimTests()
         {
 
         }

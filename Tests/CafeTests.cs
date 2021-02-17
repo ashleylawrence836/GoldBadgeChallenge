@@ -23,8 +23,6 @@ namespace Tests
             bool wasAdded = _menu.AddItemToMenu(mealOne);
 
             Assert.IsTrue(wasAdded);
-
         }
-
     }
 }

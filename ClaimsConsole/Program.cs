@@ -4,17 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Consoles.Claims
+namespace ClaimsConsole
 {
-    class ProgramUI
+    class Program
     {
-        public void Run()
+        static void Main(string[] args)
         {
-            RunMenu();
-        }
-        private void RunMenu()
-        {
-
+            ProgramUI ui = new ProgramUI();
+            ui.Run();
         }
     }
 }
