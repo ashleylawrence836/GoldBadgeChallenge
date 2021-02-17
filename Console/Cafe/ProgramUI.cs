@@ -9,7 +9,6 @@ namespace Consoles
 {
     class ProgramUI
     {
-        private List<MenuItem> _menuRepo = new List<MenuItem>();
         MenuRepository _menuRepository = new MenuRepository();
         public void Run()
         {

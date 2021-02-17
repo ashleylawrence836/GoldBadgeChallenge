@@ -9,7 +9,6 @@ namespace ClaimsConsole
 {
     class ProgramUI
     {
-        private readonly Claim _claims = new Claim();
         ClaimsLibrary.Claims.ClaimsRepository _claimsRepo = new ClaimsLibrary.Claims.ClaimsRepository();
         public void Run()
         {

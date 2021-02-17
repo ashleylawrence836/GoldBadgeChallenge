@@ -1,13 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Tests
+namespace BadgesTests
 {
     [TestClass]
-    public class ClaimsTests
+    public class BadgesTests
     {
         [TestMethod]
-        public void ClaimTests()
+        public void TestMethod1()
         {
 
         }
