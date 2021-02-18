@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using BadgesLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace BadgesTests
@@ -6,10 +7,21 @@ namespace BadgesTests
     [TestClass]
     public class BadgesTests
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
+        BadgesRepository _badge = new BadgesRepository();
 
-        }
+        [TestMethod]
+        //public void AddBadgeTest()
+        //{
+        //    Badges badgeOne = new Badges();
+        //    var doorOne = new  { "A6", "A9" };
+        //    _badge.AddBadge(new Badges(12345, doorOne));
+
+
+        //    _badge.AddBadge(badgeOne);
+        //    bool wasAdded = _badge.AddBadge(badgeOne);
+
+        //    Assert.IsTrue(wasAdded);
+        //}
     }
 }
+

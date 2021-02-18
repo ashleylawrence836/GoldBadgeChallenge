@@ -32,7 +32,7 @@ namespace BadgesConsole
                 switch (input)
                 {
                     case "1":
-                        AddBadge();
+                        AddNewBadge();
                         break;
                     case "2":
                         UpdateBadge();
@@ -70,17 +70,18 @@ namespace BadgesConsole
 
         }
 
-        private void AddBadge()
+        private void AddNewBadge()
         {
-            Badges newBadge = new Badges();
-
             Console.WriteLine("What is the number on the badge?");
             string stringInput = Console.ReadLine();
             bool input = Int32.TryParse(stringInput, out int result);
+            Badges newBadge = new Badges();
+
             if (input)
             {
                 newBadge.BadgeID = result;
                 newBadge.DoorNames = AddDoorsToBadge(newBadge);
+                _repo.AddBadge(newBadge);
             }
         }
         private string DoorList(List<string> doors)
@@ -93,22 +94,6 @@ namespace BadgesConsole
             return doorList.Replace("+, ", "");
         }
 
-        private void ListAllBadges()
-        {
-            string output = string.Format("{0,-10}{1,-100}\n",
-                "Badge #",
-                "Door Access");
-
-            Dictionary<int, List<string>> allBadges = _repo.ShowBadges();
-            foreach (var badge in allBadges)
-            {
-                output += string.Format("{0,-10}{1,-100}\n",
-                    badge.Key,
-                    (badge.Value));
-                //^^^
-            }
-            Console.WriteLine(output);
-        }
 
         private void UpdateBadge()
         {
@@ -153,12 +138,12 @@ namespace BadgesConsole
                     DoorAccess(badge);
                     Console.WriteLine("Press any key to continue.");
                     Console.ReadKey();
-                    ListAllBadges();
+                    RunMenu();
                 }
 
                 Console.WriteLine("That door isn't associated with this badge.");
                 Console.ReadKey();
-                ListAllBadges();
+                RunMenu();
             }
             else if (choice == "2")
             {
@@ -173,11 +158,36 @@ namespace BadgesConsole
                     Console.ReadKey();
                     ListAllBadges();
                 }
-                Console.WriteLine("Unable to add. Press any key to continue");
+                else
+                {
+                    Console.WriteLine("Unable to add. Press any key to continue");
+                    Console.ReadKey();
+                    ListAllBadges();
+                }
             }
-            Console.WriteLine("Change your mind? Press any key to return to the main menu.");
-            Console.ReadKey();
-            ListAllBadges();
+            else
+            {
+                Console.WriteLine("Change your mind? Press any key to return to the main menu.");
+                Console.ReadKey();
+                Console.Clear();
+                EditBadge(badge);
+            }
+
+        }
+        private void ListAllBadges()
+        {
+            string output = string.Format("{0,-10}{1,-100}\n",
+                "Badge #",
+                "Door Access");
+
+            Dictionary<int, List<string>> allBadges = _repo.ShowBadges();
+            foreach (var badge in allBadges)
+            {
+                output += string.Format("{0,-10}{1,-100}\n",
+                    badge.Key,
+                    DoorList(badge.Value));
+            }
+            Console.WriteLine(output);
         }
 
         public void SeedMenu()
