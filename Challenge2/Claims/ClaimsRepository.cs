@@ -9,9 +9,13 @@ namespace ClaimsLibrary.Claims
     public class ClaimsRepository
     {
         private Queue<Claim> _claimsQueue = new Queue<Claim>();
-        public void AddClaimToQueue(Claim file)
+        public bool AddClaimToQueue(Claim newClaim)
         {
-            _claimsQueue.Enqueue(file);
+            int startCount = _claimsQueue.Count;
+            _claimsQueue.Enqueue(newClaim);
+
+            bool wasAdded = _claimsQueue.Count > startCount;
+            return wasAdded;
         }
 
         public Queue<Claim> GetClaims()
@@ -29,6 +33,11 @@ namespace ClaimsLibrary.Claims
                 }
             }
                 return null;
+        }
+
+        public void RemoveClaim()
+        {
+            _claimsQueue.Dequeue();
         }
     }
 }

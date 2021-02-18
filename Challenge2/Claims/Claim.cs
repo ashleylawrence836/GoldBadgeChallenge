@@ -19,13 +19,16 @@ namespace ClaimsLibrary.Claims
         {
             get
             {
-                TimeSpan claimSpan = DateOfIncident - DateOfClaim;
+                TimeSpan claimSpan = DateOfClaim - DateOfIncident;
                 int isClaimValid = Convert.ToInt32(claimSpan.TotalDays);
                 if (isClaimValid <= 30)
                 {
                     return true;
                 }
+                else
+                {
                 return false;
+                }
             }
         }
 

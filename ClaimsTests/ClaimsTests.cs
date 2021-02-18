@@ -7,17 +7,24 @@ namespace ClaimsTests
     [TestClass]
     public class ClaimsTests
     {
-        Claim _claimsRepo = new Claim();
+        ClaimsRepository _claimsRepo = new ClaimsRepository();
 
         [TestMethod]
         public void AddClaimTest()
         {
-            Claim claimOne = new Claim(1, ClaimType.Theft, "Stolen snowman", 00.00, new DateTime(2021, 02, 15), new DateTime(2021, 02, 17));
+            Claim claimOne = new Claim();
 
-            //_claimsRepo.AddClaimToQueue(claimOne);
-            //bool wasAdded = _claimsRepo.AddClaimToQueue(claimOne);
+            claimOne.ClaimId = 1;
+            claimOne.ClaimType = ClaimType.Theft;
+            claimOne.Description = "Stolen snowman";
+            claimOne.ClaimAmount = 0.0;
+            claimOne.DateOfClaim = new DateTime(12/24/2020);
+            claimOne.DateOfClaim = new DateTime(12/25/2020);
 
-            //Assert.IsTrue(wasAdded);
+            _claimsRepo.AddClaimToQueue(claimOne);
+            bool wasAdded = _claimsRepo.AddClaimToQueue(claimOne);
+
+            Assert.IsTrue(wasAdded);
         }
     }
 }

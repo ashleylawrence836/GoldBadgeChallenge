@@ -93,20 +93,20 @@ namespace ClaimsConsole
             int id = claimsList.Peek().ClaimId;
             ViewById(id);
 
-            //Console.WriteLine("Do you want to deal with this claim now? (y/n)");
-            //string input = Console.ReadLine().ToUpper();
-            //if (input == y)
-            //{
-
-            //}
-
+            Console.WriteLine("Do you want to deal with this claim now? (y/n)");
+            string input = Console.ReadLine().ToUpper();
+            if (input == "y")
+            {
+                _claimsRepo.RemoveClaim();
+            }
+            ViewClaims();
         }
 
         private void SeedMenu()
         {
-            Claim claimOne = new Claim(1, ClaimType.Car, "Car accident on 465", 400.00, new DateTime(2018,04,25), new DateTime(2018,04,27));
-            Claim claimTwo = new Claim(2, ClaimType.Home, "House fire in kitchen", 4000.00, new DateTime(2018,04,11), new DateTime(2018,04,12));
-            Claim claimThree = new Claim(3, ClaimType.Theft, "Stolen pancakes", 4.00, new DateTime(2018,04,27), new DateTime(2018,06,01));
+            Claim claimOne = new Claim(1, ClaimType.Car, "Car accident on 465", 400.00, new DateTime(2018, 04, 25), new DateTime(2018, 04, 27));
+            Claim claimTwo = new Claim(2, ClaimType.Home, "House fire in kitchen", 4000.00, new DateTime(2018, 04, 11), new DateTime(2018, 04, 12));
+            Claim claimThree = new Claim(3, ClaimType.Theft, "Stolen pancakes", 4.00, new DateTime(2018, 04, 27), new DateTime(2018, 06, 01));
 
             _claimsRepo.AddClaimToQueue(claimOne);
             _claimsRepo.AddClaimToQueue(claimTwo);
